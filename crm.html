@@ -1,0 +1,122 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width, initial-scale=1"><style>body{margin:0}img{max-width:100%}</style></head><body><title>CRM H-Prime</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#f3f4f1; --paper:#fff; --ink:#151816; --ink2:#5b625e; --ink3:#8b928e; --line:#e2e5e0;
+--green:#4fb823; --green-soft:#e9f7df; --black:#0e0f0e;
+--g:#1a73e8; --g-soft:#e8f0fe; --ig:#c13584; --ig-soft:#fbe7f2; --ind:#b06d00; --ind-soft:#fff1d6;
+--warn:#d9480f; --warn-soft:#fdeee6; --ok:#1f7a3a; --ok-soft:#e3f5e8;
+--body:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+color-scheme:light;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--body);background:var(--bg);color:var(--ink);font-size:13.5px;line-height:1.45;-webkit-font-smoothing:antialiased}
+.app{min-width:1180px}
+.top{background:var(--black);color:#fff;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 20px}
+.top .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:14px}
+.top .brand .sq{width:26px;height:26px;border:2.5px solid #6fdc3c;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#6fdc3c;font-weight:800;font-size:12px}
+.top .brand small{font-weight:500;color:#a7b0a9;margin-left:6px}
+.top nav{display:flex;gap:18px;font-size:13px;color:#c9d1cb}
+.top nav b{color:#fff;border-bottom:2px solid #6fdc3c;padding-bottom:4px;font-weight:600}
+.top .user{display:flex;align-items:center;gap:8px;font-size:12.5px;color:#c9d1cb}
+.top .user i{width:26px;height:26px;border-radius:50%;background:#6fdc3c;color:#0e0f0e;display:flex;align-items:center;justify-content:center;font-style:normal;font-weight:800;font-size:11px}
+.bar{display:flex;align-items:center;justify-content:space-between;padding:16px 20px 10px;gap:16px}
+.bar h1{font-size:18px;font-weight:800;letter-spacing:-.01em}
+.bar h1 small{font-weight:500;color:var(--ink3);font-size:12.5px;margin-left:8px}
+.bar .btns{display:flex;gap:8px}
+.bar .btn{border:1px solid var(--line);background:var(--paper);border-radius:8px;padding:7px 12px;font-size:12.5px;font-weight:600;color:var(--ink2)}
+.bar .btn.p{background:var(--black);color:#fff;border-color:var(--black)}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr) 1.6fr;gap:10px;padding:0 20px 14px}
+.kpi{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.kpi .l{font-size:11.5px;color:var(--ink3);font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.kpi .v{font-size:22px;font-weight:800;letter-spacing:-.02em;margin-top:2px;font-variant-numeric:tabular-nums}
+.kpi .v small{font-size:12px;font-weight:600;color:var(--ok);margin-left:6px}
+.kpi .d{font-size:11.5px;color:var(--ink3);margin-top:1px}
+.src .row{display:flex;align-items:center;gap:8px;font-size:12px;margin-top:6px}
+.src .row span{width:78px;color:var(--ink2);font-weight:500}
+.src .row i{flex:1;height:8px;border-radius:4px;background:var(--line);overflow:hidden;display:block}
+.src .row i b{display:block;height:100%;border-radius:4px}
+.src .row em{font-style:normal;font-weight:700;width:34px;text-align:right;font-variant-numeric:tabular-nums}
+.board{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;padding:4px 20px 24px;align-items:start}
+.col{background:#e9ebe6;border-radius:12px;padding:10px}
+.col h2{font-size:12.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--ink2);display:flex;justify-content:space-between;align-items:center;padding:4px 6px 10px}
+.col h2 span{background:var(--paper);color:var(--ink2);border-radius:999px;padding:1px 8px;font-size:11.5px;font-weight:700}
+.col h2 .sum{background:none;color:var(--ink3);font-weight:600;padding:0;font-size:11.5px}
+.col.won h2{color:var(--ok)}
+.col.lost h2{color:var(--warn)}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:11px 12px;margin-bottom:8px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.card .n{font-weight:700;font-size:13.5px;display:flex;justify-content:space-between;gap:8px}
+.card .n b{font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums;white-space:nowrap}
+.card .s{color:var(--ink2);font-size:12.5px;margin-top:2px}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.tag{font-size:11px;font-weight:700;border-radius:6px;padding:2px 7px}
+.tag.g{background:var(--g-soft);color:var(--g)}
+.tag.ig{background:var(--ig-soft);color:var(--ig)}
+.tag.ind{background:var(--ind-soft);color:var(--ind)}
+.tag.t{background:#eef0ec;color:var(--ink2);font-weight:600}
+.task{margin-top:8px;padding-top:8px;border-top:1px dashed var(--line);font-size:12px;color:var(--ink2);display:flex;align-items:center;gap:6px}
+.task.due{color:var(--warn);font-weight:600}
+.task.ok{color:var(--ok);font-weight:600}
+.task svg{flex-shrink:0}
+.note{padding:0 20px 20px;font-size:12px;color:var(--ink3)}
+</style>
+<div class="app">
+<div class="top">
+<div class="brand"><div class="sq">H</div>H-Prime <small>· CRM de orçamentos</small></div>
+<nav><b>Funil</b><span>Contatos</span><span>Tarefas</span><span>WhatsApp</span><span>Relatórios</span></nav>
+<div class="user"><i>HP</i> H-Prime</div>
+</div>
+<div class="bar">
+<h1>Orçamentos · setembro de 2026 <small>atualizado agora</small></h1>
+<div class="btns"><span class="btn">Filtrar por origem</span><span class="btn">Exportar</span><span class="btn p">+ Novo contato</span></div>
+</div>
+<div class="kpis">
+<div class="kpi"><div class="l">Contatos no mês</div><div class="v">47</div><div class="d">31 vindos de anúncio</div></div>
+<div class="kpi"><div class="l">Orçamentos enviados</div><div class="v">23</div><div class="d">tempo médio de resposta 38 min</div></div>
+<div class="kpi"><div class="l">Fechados</div><div class="v">9<small>19%</small></div><div class="d">R$ 18.740 em serviços</div></div>
+<div class="kpi"><div class="l">Custo por contato</div><div class="v">R$ 24</div><div class="d">Google R$ 31 · Instagram R$ 17</div></div>
+<div class="kpi"><div class="l">Custo por fechamento</div><div class="v">R$ 167</div><div class="d">verba de R$ 1.500 no mês</div></div>
+<div class="kpi src"><div class="l">De onde vem</div>
+<div class="row"><span>Google</span><i><b style="width:51%;background:var(--g)"></b></i><em>51%</em></div>
+<div class="row"><span>Instagram</span><i><b style="width:32%;background:var(--ig)"></b></i><em>32%</em></div>
+<div class="row"><span>Indicação</span><i><b style="width:17%;background:var(--ind)"></b></i><em>17%</em></div>
+</div>
+</div>
+<div class="board">
+<div class="col">
+<h2>Novo contato <span>4</span></h2>
+<div class="card"><div class="n">Ana Paula S.</div><div class="s">Envelopamento de armários da cozinha</div><div class="tags"><span class="tag g">Google</span><span class="tag t">há 12 min</span></div><div class="task due"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Responder agora</div></div>
+<div class="card"><div class="n">Carlos M.</div><div class="s">Insulfilm na sacada, 3 vidros</div><div class="tags"><span class="tag ig">Instagram</span><span class="tag t">há 1 h</span></div><div class="task"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg>Pedir foto e medidas</div></div>
+<div class="card"><div class="n">Fernanda R.</div><div class="s">Papel de parede no quarto do bebê</div><div class="tags"><span class="tag ind">Indicação</span><span class="tag t">há 3 h</span></div><div class="task"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg>Enviar catálogo</div></div>
+<div class="card"><div class="n">Loja Bella Moda</div><div class="s">Adesivo de vitrine com logo</div><div class="tags"><span class="tag g">Google</span><span class="tag t">ontem</span></div><div class="task"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg>Pedir arte da logo</div></div>
+</div>
+<div class="col">
+<h2>Orçamento enviado <span>5</span></h2>
+<div class="card"><div class="n">Juliana T. <b>R$ 1.850</b></div><div class="s">Envelopamento de armários</div><div class="tags"><span class="tag g">Google</span><span class="tag t">enviado há 2 dias</span></div><div class="task due"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Retornar hoje às 15h</div></div>
+<div class="card"><div class="n">Roberto A. <b>R$ 2.300</b></div><div class="s">Insulfilm em 6 janelas</div><div class="tags"><span class="tag ig">Instagram</span><span class="tag t">enviado ontem</span></div><div class="task"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg>Retornar amanhã</div></div>
+<div class="card"><div class="n">Studio Gi Arquitetura <b>R$ 6.400</b></div><div class="s">Móveis da recepção, projeto comercial</div><div class="tags"><span class="tag ind">Indicação</span><span class="tag t">enviado ontem</span></div><div class="task"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg>Aguardando cliente final</div></div>
+<div class="card"><div class="n">Marcos P. <b>R$ 740</b></div><div class="s">Porta e geladeira</div><div class="tags"><span class="tag g">Google</span><span class="tag t">enviado hoje</span></div><div class="task"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg>Retornar em 2 dias</div></div>
+<div class="card"><div class="n">Clínica Sorrir <b>R$ 3.150</b></div><div class="s">Película jateada nas salas</div><div class="tags"><span class="tag g">Google</span><span class="tag t">enviado hoje</span></div><div class="task"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg>Retornar em 2 dias</div></div>
+</div>
+<div class="col">
+<h2>Visita ou medição <span>2</span></h2>
+<div class="card"><div class="n">Lima Contábil <b>R$ 3.900</b></div><div class="s">Insulfilm em 12 janelas do escritório</div><div class="tags"><span class="tag g">Google</span></div><div class="task ok"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Visita sexta, 10h</div></div>
+<div class="card"><div class="n">Patrícia L. <b>R$ 2.900</b></div><div class="s">Cozinha completa em tom amadeirado</div><div class="tags"><span class="tag ig">Instagram</span></div><div class="task ok"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Medição quinta, 14h</div></div>
+</div>
+<div class="col won">
+<h2>Fechado <span>9</span> <span class="sum">R$ 18.740</span></h2>
+<div class="card"><div class="n">Camila V. <b>R$ 2.400</b></div><div class="s">Cozinha em tom rosê</div><div class="tags"><span class="tag ig">Instagram</span><span class="tag t">aplicação 12/09</span></div><div class="task ok"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Pedir avaliação no Google após a entrega</div></div>
+<div class="card"><div class="n">Ótica Central <b>R$ 4.600</b></div><div class="s">Fachada de vidro espelhada</div><div class="tags"><span class="tag g">Google</span><span class="tag t">aplicação 09/09</span></div><div class="task ok"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Gravar antes e depois</div></div>
+<div class="card"><div class="n">Eduardo N. <b>R$ 980</b></div><div class="s">Porta e geladeira</div><div class="tags"><span class="tag ind">Indicação</span><span class="tag t">entregue</span></div><div class="task ok"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Avaliação recebida ★★★★★</div></div>
+</div>
+<div class="col lost">
+<h2>Perdido <span>3</span></h2>
+<div class="card"><div class="n">Renata O. <b>R$ 650</b></div><div class="s">Adesivo decorativo</div><div class="tags"><span class="tag ig">Instagram</span><span class="tag t">motivo: preço</span></div></div>
+<div class="card"><div class="n">Depósito Norte <b>R$ 1.200</b></div><div class="s">Insulfilm galpão</div><div class="tags"><span class="tag g">Google</span><span class="tag t">motivo: fora da região</span></div></div>
+</div>
+</div>
+<div class="note">Exemplo ilustrativo com dados fictícios. A ferramenta final (Kommo, HubSpot ou similar) é definida com a H-Prime na semana 2.</div>
+</div>
+</body></html>
